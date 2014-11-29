@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  equipment_name: MyString
+  equipment_num: MyString
+  buy_date: 2014-11-20 00:39:47
+  use_start_date: 2014-11-20 00:39:47
+  use_end_date: 2014-11-20 00:39:47
+  check_status: false
+  quantity: 1
+  price: 1.5
+  user_name: MyString
+  order_id: MyString
+  over_status: false
+
+two:
+  equipment_name: MyString
+  equipment_num: MyString
+  buy_date: 2014-11-20 00:39:47
+  use_start_date: 2014-11-20 00:39:47
+  use_end_date: 2014-11-20 00:39:47
+  check_status: false
+  quantity: 1
+  price: 1.5
+  user_name: MyString
+  order_id: MyString
+  over_status: false

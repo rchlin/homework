@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  equipment_name: MyString
+  equipment_num: MyString
+  belong_to_institution: MyString
+  able_start_time: 2014-11-20 00:47:53
+  able_end_time: 2014-11-20 00:47:53
+  detail: MyText
+  price: 1.5
+  count: 
+  equipment_status: false
+  owner: MyString
+
+two:
+  equipment_name: MyString
+  equipment_num: MyString
+  belong_to_institution: MyString
+  able_start_time: 2014-11-20 00:47:53
+  able_end_time: 2014-11-20 00:47:53
+  detail: MyText
+  price: 1.5
+  count: 
+  equipment_status: false
+  owner: MyString

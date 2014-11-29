@@ -1,0 +1,16 @@
+<h1>登录</h1>
+<div>
+  <div>
+    <%= form_for :session, url:sessions_path do |f| %>
+
+        <%= f.label :email, "邮箱：" %>
+        <%= f.text_field :email %>
+
+        <label for="session_password">密码：</label>
+        <%= f.password_field :password %>
+
+        <%= f.submit "登录" %>
+    <% end %>
+    <p>还没有注册？<%= link_to "注册", signup_path %></p>
+  </div>
+</div>
