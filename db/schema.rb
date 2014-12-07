@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141123165612) do
+ActiveRecord::Schema.define(:version => 20141129072437) do
 
   create_table "equipment", :force => true do |t|
     t.string   "name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20141123165612) do
     t.string   "owner"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
+    t.integer  "user_id"
   end
 
   create_table "orders", :force => true do |t|
@@ -42,6 +43,9 @@ ActiveRecord::Schema.define(:version => 20141123165612) do
     t.boolean  "over_status"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.integer  "user_id"
+    t.integer  "equipment_id"
+    t.string   "message"
   end
 
   create_table "users", :force => true do |t|

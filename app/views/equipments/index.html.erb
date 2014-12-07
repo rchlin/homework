@@ -1,0 +1,22 @@
+<h1>我的仪器</h1>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>所属机构</th>
+    <th>仪器名称</th>
+    <th>仪器编号</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @equipments.each do |e| %>
+      <tr>
+        <td><%= e.belong_to_institution %></td>
+        <td><%= e.name %></td>
+        <td><%= e.number %></td>
+        <td><%= link_to '编辑', edit_user_equipment_path(current_user, e) %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= link_to '返回', manager_path %>

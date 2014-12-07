@@ -1,11 +1,24 @@
 Homework::Application.routes.draw do
-  resources :users
+  resources :users do
+    resources :equipments
+    resources :orders
+  end
+  resources :equipments do
+    resources :orders
+  end
   resources :sessions, only: [:new, :create, :destroy]
+  resources :equipments, only: [:new, :create]
+  #resources :orders
 
   match '/signin', to:'sessions#new'
   match '/signup', to:'users#new'
   match '/signout', to:'sessions#destroy', via: :delete
+
   root to:'home_pages#home'
+
+  match '/manager', to: 'home_pages#manager'
+  match '/users/:user_id/manager_orders', to: 'home_pages#manager_orders'
+  match '/search', to: 'home_pages#search'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

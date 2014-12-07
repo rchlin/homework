@@ -1,0 +1,15 @@
+<%= form_for([current_user, @equipment]) do |f| %>
+    <%= f.label :name, "仪器名称：" %>
+    <%= f.text_field :name %>
+    <%= f.label :number, "仪器编号：" %>
+    <%= f.text_field :number %>
+    <%= f.label :price, "价格：" %>
+    <%= f.text_field :price %>
+    <h2>可用时间段</h2>
+    <%= f.label :able_start_time, "起始时间：" %>
+    <%= f.datetime_select :able_start_time %>
+    <%= f.label :able_end_time, "结束时间：" %>
+    <%= f.datetime_select :able_end_time %>
+    <br>
+    <%= f.submit "提交" %>
+<% end %>

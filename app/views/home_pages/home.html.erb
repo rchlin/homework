@@ -1,11 +1,12 @@
 <h1>首页</h1>
-<form action="#" method="post">
-  <label for="search">搜索</label>
-  <input type="text" id="search" name="search">
-  <input type="submit" value="提交">
-</form>
+<%= form_for Equipment.new, :url => search_path, :method => :get do |f|%>
+    <%= f.label :name, "仪器名称" %>
+    <%= f.text_field :name %>
+    <%= f.submit "搜索" %>
+<% end %>
 <% if !@equipments.first.nil? %>
-    <table>
+    <table class="table table-striped">
+      <thead>
       <tr>
         <th>所属单位</th>
         <th>设备名称</th>
@@ -15,16 +16,20 @@
         <th>管理人员</th>
         <th>预约状态</th>
       </tr>
+      </thead>
+      <tbody>
       <% @equipments.each do |equipment| %>
-        <tr>
-          <td><%= equipment.belong_to_institution %></td>
-          <td><%= equipment.name %></td>
-          <td><%= equipment.number %></td>
-          <td><%= equipment.detail %></td>
-          <td><%= equipment.price %></td>
-          <td><%= equipment.owner %></td>
-          <td><%= equipment.status %></td>
-        </tr>
+          <tr>
+            <td><%= equipment.belong_to_institution %></td>
+            <td><%= equipment.name %></td>
+            <td><%= equipment.number %></td>
+            <td><%= equipment.detail %></td>
+            <td><%= equipment.price %></td>
+            <td><%= equipment.owner %></td>
+            <td><%= link_to "预约", new_equipment_order_path(equipment) %></td>
+          </tr>
       <% end %>
+      </tbody>
     </table>
 <% end %>
+<!--<%= params.inspect %>-->

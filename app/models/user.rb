@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :orders, dependent: :destroy
+  has_many :equipments
   attr_accessible :email, :institution, :money, :password, :phone, :type, :name, :remmember_token
   #has_secure_password
 

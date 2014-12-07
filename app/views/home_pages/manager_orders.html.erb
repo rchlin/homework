@@ -1,0 +1,26 @@
+<h1>管理员订单</h1>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>用户姓名</th>
+    <th>所属机构</th>
+    <th>预定仪器名称</th>
+    <th>预定仪器编号</th>
+    <th>订单状态</th>
+  </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+    <tr>
+      <td><%= order.user.name %></td>
+      <td><%= order.user.institution %></td>
+      <td><%= order.equipment.name %></td>
+      <td><%= order.equipment.number %></td>
+      <% if !order.check_status %>
+        <td><%=  %></td>
+      <% end %>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to '返回', manager_path %>

@@ -1,0 +1,14 @@
+<h1>创建订单</h1>
+<%= form_for [@equipment, @order] do |f| %>
+    <%= f.label :equipment_name, "仪器名称：" %>
+    <%= f.text_field :equipment_name %>
+    <%= f.label :equipment_num, "仪器编号：" %>
+    <%= f.text_field :equipment_num %>
+    <%= f.label :use_start_date, "预约起始时间：" %>
+    <%= f.datetime_select :use_start_date %>
+    <%= f.label :use_end_date, "预约结束时间：" %>
+    <%= f.datetime_select :use_end_date %>
+    <br>
+    <%= f.submit '提交订单' %>
+<% end %>
+<%= link_to "返回", root_path %>
