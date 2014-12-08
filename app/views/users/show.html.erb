@@ -3,7 +3,9 @@
 <% if signed_in? %>
 
     <label>用户名：<%= current_user.name%></label><br>
-    <label>邮箱：<%= current_user.email%></label>
+    <label>邮箱：<%= current_user.email%></label><br>
+    <label>联系方式：<%= current_user.phone %></label><br>
+    <label>所属单位：<%= current_user.institution %></label>
 
 <% end %>
 <br>

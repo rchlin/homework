@@ -2,9 +2,12 @@
 <table class="table table-striped">
   <thead>
   <tr>
-    <th>所属机构</th>
+    <th>所属单位</th>
     <th>仪器名称</th>
     <th>仪器编号</th>
+    <th>管理人员</th>
+    <th>功能</th>
+    <th>价格</th>
     <th></th>
   </tr>
   </thead>
@@ -14,6 +17,9 @@
         <td><%= e.belong_to_institution %></td>
         <td><%= e.name %></td>
         <td><%= e.number %></td>
+        <td><%= e.owner %></td>
+        <td><%= e.detail %></td>
+        <td><%= e.price %></td>
         <td><%= link_to '编辑', edit_user_equipment_path(current_user, e) %></td>
       </tr>
   <% end %>

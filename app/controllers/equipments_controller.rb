@@ -11,6 +11,8 @@ class EquipmentsController < ApplicationController
   def new
     @equipment = Equipment.new
     @user = User.find(params[:user_id])
+    @equipment.owner = @user.name
+    @equipment.belong_to_institution = @user.institution
 
   end
 
@@ -19,7 +21,7 @@ class EquipmentsController < ApplicationController
 
     if @equipment.save
       flash[:success] = 'new equipments success!!'
-      redirect_to equipments_path
+      redirect_to user_equipments_path(current_user)
     else
       redirect_to new_equipment_path
     end

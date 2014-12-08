@@ -1,14 +1,19 @@
 <h1>用户编辑</h1>
 <%= form_for @user do |f| %>
     <div>
-      <%= f.label :email %>
+      <%= f.label :email, "邮箱：" %>
       <%= f.text_field :email %>
     </div>
     <div>
-      <%= f.label :name %>
+      <%= f.label :name, "用户名：" %>
       <%= f.text_field :name %>
     </div>
+    <%= f.label :phone, "电话：" %>
+    <%= f.text_field :phone %>
+    <%= f.label :institution, "所属单位："  %>
+    <%= f.text_field :institution %>
     <div>
       <%= f.submit "更新" %>
     </div>
 <% end %>
+<%= link_to "返回", user_path %>
