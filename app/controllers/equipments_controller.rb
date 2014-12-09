@@ -44,6 +44,17 @@ class EquipmentsController < ApplicationController
     end
   end
 
+  def destroy
+    @equipment = Equipment.find(params[:id])
+    if @equipment.user.eql?current_user
+      @equipment.destroy
+      redirect_to user_equipments_path(current_user)
+    else
+      flash[:error] = "equipment destroy error"
+      redirect_to user_equipments_path(current_user)
+    end
+  end
+
   private
   def signed_in_user
     redirect_to signin_path, notice: 'Please sign in.' unless signed_in?

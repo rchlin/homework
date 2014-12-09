@@ -29,4 +29,18 @@ class HomePagesController < ApplicationController
       format.html { render 'home'}
     end
   end
+  def check_order
+    @order = Order.find(params[:order_id])
+  end
+  def check
+    @order = Order.find(params[:order_id])
+
+    if @order.update_attributes(params[:order])
+      flash[:success] = 'confirmed success'
+      redirect_to :controller => :home_pages, :action => :manager_orders, :user_id => current_user.id
+    else
+      flash[:error] = 'confirmed fail'
+      redirect_to :controller => :home_pages, :action => :manager_orders, :user_id => current_user.id
+    end
+  end
 end

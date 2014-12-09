@@ -6,6 +6,8 @@
     <th>所属机构</th>
     <th>预定仪器名称</th>
     <th>预定仪器编号</th>
+    <th>预约使用开始时间</th>
+    <th>预约使用结束时间</th>
     <th>订单状态</th>
   </tr>
   </thead>
@@ -14,10 +16,16 @@
     <tr>
       <td><%= order.user.name %></td>
       <td><%= order.user.institution %></td>
-      <td><%= order.equipment.name %></td>
-      <td><%= order.equipment.number %></td>
-      <% if !order.check_status %>
-        <td><%=  %></td>
+      <td><%= order.equipment_name %></td>
+      <td><%= order.equipment_num %></td>
+      <td><%= order.use_start_date %></td>
+      <td><%= order.use_end_date %></td>
+      <% if order.check_status.nil? %>
+        <td><%= link_to "审核", controller: "home_pages", action: :check_order, order_id: order.id %></td>
+      <% elsif order.check_status %>
+        <td><span id="check_success">已审核，预约成功</span></td>
+      <% else %>
+        <td id="check_fail">已审核，预约失败</td>
       <% end %>
     </tr>
     <% end %>

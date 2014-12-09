@@ -17,10 +17,12 @@
         <td><%= order.equipment_num %></td>
         <td><%= order.use_start_date %></td>
         <td><%= order.use_end_date %></td>
-        <% if !order.check_status %>
+        <% if order.check_status.nil? %>
         <td>未审核</td>
+        <% elsif order.check_status %>
+        <td id="check_success">已审核，预约成功</td>
         <% else %>
-        <td>已审核</td>
+        <td id="check_fail">已审核，预约失败</td>
         <% end %>
         <td><%= order.message %></td>
       </tr>

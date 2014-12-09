@@ -18,6 +18,8 @@ Homework::Application.routes.draw do
 
   match '/manager', to: 'home_pages#manager'
   match '/users/:user_id/manager_orders', to: 'home_pages#manager_orders'
+  match '/manager/:order_id/order', to: 'home_pages#check_order'
+  match '/manager/:order_id/check', to: 'home_pages#check', via: :put
   match '/search', to: 'home_pages#search'
 
   # The priority is based upon order of creation:

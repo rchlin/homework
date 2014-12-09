@@ -1,0 +1,33 @@
+<h1>订单审核</h1>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>用户姓名</th>
+    <th>所属机构</th>
+    <th>预定仪器名称</th>
+    <th>预定仪器编号</th>
+    <th>预约使用开始时间</th>
+    <th>预约使用结束时间</th>
+  </tr>
+  </thead>
+  <tbody>
+    <% if !@order.nil? %>
+      <tr>
+        <td><%= @order.user.name %></td>
+        <td><%= @order.user.institution %></td>
+        <td><%= @order.equipment_name %></td>
+        <td><%= @order.equipment_num %></td>
+        <td><%= @order.use_start_date %></td>
+        <td><%= @order.use_end_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= form_for @order,:as => :order, :url => { controller: :home_pages, action: :check, :order_id => @order.id }, :method => :put do |f| %>
+    <%= f.label :check_status, "通过：" %>
+    <%= f.check_box :check_status %>
+    <%= f.label :message, "审核信息：" %>
+    <%= f.text_field :message %><br>
+    <%= f.submit "确认" %>
+<% end %>
+<%= link_to "返回", :controller => "home_pages", :action => "manager_orders", :user_id => current_user.id %>

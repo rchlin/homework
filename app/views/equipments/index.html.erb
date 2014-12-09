@@ -9,6 +9,7 @@
     <th>功能</th>
     <th>价格</th>
     <th></th>
+    <th></th>
   </tr>
   </thead>
   <tbody>
@@ -21,6 +22,7 @@
         <td><%= e.detail %></td>
         <td><%= e.price %></td>
         <td><%= link_to '编辑', edit_user_equipment_path(current_user, e) %></td>
+        <td><%= link_to '删除', user_equipment_path(current_user, e), :method => :delete, :confirm => "删除仪器？" %></td>
       </tr>
   <% end %>
   </tbody>
